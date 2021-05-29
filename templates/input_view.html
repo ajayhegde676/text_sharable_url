@@ -1,9 +1,9 @@
 {% load rest_framework %}
 
-<html><body>
+<html>
+<body>
 
 {% if method == 'GET' %}
-
 <form  method="POST" >
     {% csrf_token %}
     {% render_form serializer %}
