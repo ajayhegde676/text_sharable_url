@@ -1,0 +1,35 @@
+{% load rest_framework %}
+
+<html><body>
+
+{% if method == 'GET' %}
+
+<form  method="POST" >
+    {% csrf_token %}
+    {% render_form serializer %}
+    <br>
+    <input type="checkbox"  id="encrypt" name="encrypt" >
+    <label for="encrypt"> Encrypt my text</label><br>
+    <br>
+    <input type="submit" value="Get url"/>
+
+    {% endif %}
+</form>
+
+{% if method == 'POST' %}
+
+<form  method="POST" >
+    {% csrf_token %}
+    {% render_form serializer %}
+    <br>
+    <input type="checkbox"  id="encrypt" name="encrypt" >
+    <label for="encrypt"> Encrypt my text</label><br>
+    <br>
+    <input type="submit" value="Get url"/><br>
+
+    <br><hr>
+    Your sharable url is : <a href={% url 'result' pk=mytext.id %}>{{ mytext.get_absolute_url }}</a>
+     {% endif %}
+</form>
+
+</body></html>
