@@ -3,13 +3,10 @@ from rest_framework import serializers
 from app.models import Text
 
 
-
 class TextSerializer(serializers.ModelSerializer):
     class Meta:
         model = Text
         fields = '__all__'
-
-
 
     def save1(self,**kwargs):
         signer = Signer()
